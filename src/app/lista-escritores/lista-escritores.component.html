@@ -1,0 +1,36 @@
+<h1>Escritores</h1>
+<hr />
+<select
+  class="form-select mb-4"
+  aria-label="Default select example"
+  (change)="onChange($event)"
+>
+  <option value="todos">Todos</option>
+  <option value="españa">España</option>
+  <option value="reino unido">Reino unido</option>
+  <option value="canadá">Canadá</option>
+  <option value="chile">Chile</option>
+</select>
+<div class="row">
+  <div class="col-3" *ngFor="let escritor of arrEscritores">
+    <div class="card gap-4 mb-4">
+      <img
+        [src]="escritor.imagen"
+        class="card-img-top"
+        alt="..."
+        height="350"
+      />
+      <div class="card-body">
+        <h5 class="card-title">
+          {{ escritor.nombre }} {{ escritor.apellidos }}
+        </h5>
+        <p class="card-text">
+          {{ escritor.pais }}
+        </p>
+        <a [routerLink]="['/escritores', escritor.id]" class="btn btn-primary"
+          >VER DETALLE</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
